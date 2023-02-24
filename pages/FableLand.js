@@ -8,48 +8,30 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 import { useState } from "react";
 import deved from "../public/profilepic.png";
 import Image from "next/image";
-import web1 from "../public/web1.gif";
-import web2 from "../public/web2.gif";
-import web3 from "../public/web3.gif";
-import web4 from "../public/web4.gif";
-import web5 from "../public/web5.gif";
-import web6 from "../public/web6.gif";
+import web1 from "../public/fableland/web1.gif";
+import web2 from "../public/fableland/web2.gif";
+import web3 from "../public/fableland/web3.gif";
+import web4 from "../public/fableland/web4.gif";
+import web5 from "../public/fableland/web5.mp4";
 import resume from "../public/kaztaharaedmondsresume.pdf";
 
 
 
 
 
-export default function Home(props) {
+export default function FableLand( props ) {
   const [darkMode, setDarkMode] = useState(true);
 
 
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  const handleClick = (page) => {
-    props.setPage(page);
-  };
-  
 
   const images = [
     { src: web1 },
     { src: web2 },
     { src: web3 },
     { src: web4 },
-    { src: web5 },
-    { src: web6 }
   ];
+
   
-  const titles = ["FABLELAND", "DEAD MEAT", "FISHERMAN'S WHARF", "FPS FUN", "MASTER OF CASTLES", "ANIMAL ROLL"];
-  const pageID = ["FABLELAND", "DEADMEAT", "FISHERMAN", "FPSFUN", "MASTEROFCASTLES", "ANIMALROLL"];
 
   const renderImages = () => {
     return images.map((image, index) => {
@@ -80,7 +62,7 @@ export default function Home(props) {
       <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
         <section className="">
           <nav className="py-10 mb-0 flex justify-between dark:text-white">
-            <h1 className="text-xl">Kaz Tahara-Edmonds</h1>
+            <button className="text-xl" onClick={() => props.setPage('home')}>Home</button>
             <ul className="flex items-center">
               <li>
                 <BsFillMoonStarsFill
@@ -100,24 +82,13 @@ export default function Home(props) {
           </nav>
           <div className="flex flex-wrap">
             <div className="w-full md:w-1/3 p-25n py-10 md:py-0">
-              <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-2 md:h-96 md:w-96">
+              <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-lg w-80 h-80 relative overflow-hidden mt-2 md:h-96 md:w-96">
                 <Image src={deved} layout="fill" objectFit="cover" />
-              </div>
-              <div className="text-5xl flex justify-center gap-20 py-2 relative overflow-hidden text-gray-600 dark:text-gray-400">
-                <AiFillLinkedin 
-                  onClick={() => window.open("https://www.linkedin.com/in/kaz-te/", '_blank', 'noopener')}
-                  className=" cursor-pointer text-2xl" />  
-                <AiFillYoutube                   
-                  onClick={() => window.open("https://www.youtube.com/channel/UCt2tTe3Exuq5HEC_TYCxRLQ", '_blank', 'noopener')}
-                  className=" cursor-pointer text-2xl" />
-                <AiFillInstagram                   
-                  onClick={() => window.open("https://www.instagram.com/kaz.te/", '_blank', 'noopener')}
-                  className=" cursor-pointer text-2xl" />
               </div>
             </div>
             <div className="w-full md:w-2/3 p-20 py-200">
               <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
-                Kaz Tahara-Edmonds
+                FABLELAND
               </h2>
               <h3 className="text-2xl py-2 dark:text-white md:text-3xl">
                 Game Developer and Software Engineer.
@@ -140,6 +111,18 @@ export default function Home(props) {
           </div>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
             {renderImages()}
+
+            <div key={index} className="basis-1/3 flex-1 ">
+          <div className="image-container">
+            <video
+                className="rounded-lg object-cover"
+                width={"100%"}
+                height={"75%"}
+                layout="responsive"
+                src={web5}
+                />
+              </div>
+            </div>
           
           </div>
         </section>

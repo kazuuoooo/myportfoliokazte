@@ -1,32 +1,36 @@
 import React from 'react';
 import HomePage from './HomePage';
-import AboutPage from './FableLand';
+import FableLand from './FableLand';
 
 
 function App() {
   const [page, setPage] = React.useState('home');
 
+  
   const handlePageChange = (newPage) => {
     setPage(newPage);
   };
 
   const renderPage = () => {
 
+
+    console.log(page);
+
     switch (page) {
       case 'home':
         return <HomePage setPage={handlePageChange}/>;
       case 'FABLELAND':
-        return <AboutPage setPage={handlePageChange}/>;
+        return <FableLand setPage={handlePageChange}/>;
       case 'DEADMEAT':
-        return <AboutPage setPage={handlePageChange}/>;
+        return <FableLand setPage={handlePageChange}/>;
       case 'FISHERMAN':
-        return <AboutPage setPage={handlePageChange}/>;
+        return <FableLand setPage={handlePageChange}/>;
       case 'FPSFUN':
-        return <AboutPage setPage={handlePageChange}/>;
+        return <FableLand setPage={handlePageChange}/>;
       case 'MASTEROFCASTLES':
-        return <AboutPage setPage={handlePageChange}/>;
+        return <FableLand setPage={handlePageChange}/>;
       case 'ANIMALROLL':
-        return <AboutPage setPage={handlePageChange}/>;
+        return <FableLand setPage={handlePageChange}/>;
       default:
         return <HomePage setPage={handlePageChange}/>;
     }

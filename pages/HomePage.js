@@ -23,7 +23,7 @@ import resume from "../public/kaztaharaedmondsresume.pdf";
 
 
 
-export default function Home(props) {
+export default function HomePage( props) {
   const [darkMode, setDarkMode] = useState(true);
 
 
@@ -37,9 +37,6 @@ export default function Home(props) {
     setIsHovered(false);
   };
 
-  const handleClick = (page) => {
-    props.setPage(page);
-  };
   
 
   const images = [
@@ -68,7 +65,7 @@ export default function Home(props) {
             />
             <div className="overlay"></div>
             <div className="title">
-              <button onClick={() => handleClick(pageID[index])}>{titles[index]} </button>
+              <button onClick={() => props.setPage(pageID[index])}>{titles[index]} </button>
             </div>
           </div>
         </div>
